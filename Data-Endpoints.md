@@ -1,7 +1,13 @@
 The Data Endpoint API represents the contract that the Glimpse Client expects the server to provide. This contract is important as the Glimpse Client is designed to work with multiple server implementations. This definition allows anyone implementing a Glimpse Service know what data it is expected to be able to send, when given Http `Post` is received.
 
-## Request 
-Single entry that matches the given `requestId`
+## End Point 
+The intent if for the below API to be serviced through a single endpoint and for the server implantation to determine what needs to happen via the parameters supplied. This is intended to make the work of who ever is implementing the server side of Glimpse easier, as different frameworks might require more configuration for any increase in endpoints.  
+
+The physical URL that the client will use to access this End Point is determined by by the Resource Endpoint API. This allows for the server implementation to provide a URL that is consistent with that platform. The exact structure of each of the models will be described in the Model API.
+
+## API
+### Request 
+Single entry that matches the given `requestId`.
 
 _Input_:
 
@@ -9,7 +15,8 @@ _Input_:
 
 _Output_: Full Response
 
-    {     method : '...',
+    {     
+        method : '...',
         duration : 111,  
         browser : '...',
         clientName : '...',
@@ -18,24 +25,19 @@ _Output_: Full Response
         parentId : '...',
         isAjax : false,
         url : '/',  
-        metadata : { 'correlation' : { 
-                                title : 'PRG Request', 
-                                legs : [ { method : 'POST', url : '/Help/Feature/Add', glimpseId : 'PRG' }, 
-                                        { method : 'GET', url : '/', glimpseId : '1234' } ] } }
-            },
+        metadata : { ... },
         data : {
                 'TabA' : { name : 'Tab A', data : { ... } },
                 ...,
                 'TabX' : { name : 'Tab X', data : { ... } },
-            }
         }
+    }
 
 _Note_: The data returned represents a requests *full* response. Meaning it *not only* includes the header, but it adds on the *request specifc metadata* and *request data payload*. 
 
-***
 
-## Plugin
-Lazy loading data for an individual plugin
+### Plugin
+Lazy loading data for an individual plugin.
 
 _Input_:
 
@@ -47,10 +49,9 @@ _Output_: Indovidual Plugin Payload
     
 _Note_: The data returned represents the payload for an * individual plugin*. Meaning it *includes* the payload which is normally embedded within one of the elements of the *full* responses `data` property.
 
-***
 
-## Child Requests
-List of child ajax requests associated with a given origin `requestId`
+### Child Requests
+List of child ajax requests associated with a given origin `requestId`.
 
 _Input_:
 
@@ -66,10 +67,9 @@ _Note_: The data returned represents the requests *header* response. Meaning it 
 
 _Enhancements_: A client should be able to indicate what previous ajax requests is knows about. Meaning, if the server was previously asked for a list of child requests and it returned 5 results, next time it is called, if there are 2 new child requests, only the 2 new results should be returned instead of all 7.
 
-***
 
-## History
-List of all the requests that the glimpse storage provider knows about
+### History
+List of all the requests that the glimpse storage provider knows about.
 
 _Input_:
 
