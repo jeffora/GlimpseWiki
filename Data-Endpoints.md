@@ -41,6 +41,60 @@ Sample:
 }
 ```
 
+### Glimpse Request
+
+Definition:
+
+```js
+{  
+    ("method" : ("GET" | "POST" | "DELETE" | "PUT")),
+    ("duration" : numeric), 
+    ("browser" : (friendlyBrowserName | userAgent)),
+    ("clientName" : alphanumeric),
+    ("requestTime" : timestampAsString), 
+    ("requestId" : alphanumeric),
+    ("parentId" : alphanumeric)?,
+    ("isAjax" : bool),
+    ("url" : absolutePath),
+    ("metadata" : [Glimpse Metadata])?,
+    ("data" : [Glimpse Plugins])
+}
+```
+
+Remarks:
+
+ * `method` - Describes the http verb that was used 
+ * `duration` - The number of milliseconds that the request took to execute on the server
+ * `browser` - Description that can be used to help identify which browser a request came from
+ * `clientName` - The session name by which requests can be grouped by
+ * `requestId` - Unique ID that each request has
+ * `parentId` - The ID of the logical parent that "owns" the request
+    * Mainly used in the case of Ajax requests and to help identify the originating "parent" request 
+ * `isAjax` - Whether this request was an ajax request or not
+ * `url` - Absolute path that corresponds with the request
+ * `metadata` - Any request specific metadata that this request has
+    * Request specific metadata is merged with the global metadata when processing the request. If there are any conflicts between this request specific metadata and the global metadata, the request specific metadata will be applied.
+ * `data` - An key/value structure, representing the Glimpse Plugin's that where processed in this request
+
+Sample:
+```js
+{ 
+    method : "GET",
+    duration : 123,
+    browser : "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1201.0 Safari/537.1",
+    clientName : "iPhone",
+    requestId : "33fe61d1-cc8c-42b3-8ff4-1b8185c1ee98",
+    isAjax : false,
+    url : "/Glimpse/Glimpse/wiki/Data-Endpoints/",
+    metadata : { /* [Glimpse Metadata] */ } ,
+    data: { /* [Glimpse Plugins] */ } 
+}
+```
+
+### Glimpse Metadata Plugins
+
+
+
 ### Glimpse Metadata
 
 Definition:
@@ -96,7 +150,7 @@ Remarks:
     * `legs` - A collection holding the description of each of the requests involved
     * `method` - Describes the http verb that was used 
     * `requestId` - The ID that the system can use identify the request
- * `plugins` - The metadata that is to be applied to individual plugins 
+ * `plugins` - An key/value structure, the Glimpse Metadata Plugin that is to be applied to individual plugins 
 
 Sample:
 ```js
@@ -118,59 +172,6 @@ Sample:
     plugins : { /* [Glimpse Metadata Plugs] */ }
 }
 ```
-
-
-
-### Glimpse Request
-
-Definition:
-
-```js
-{  
-    ("method" : ("GET" | "POST" | "DELETE" | "PUT")),
-    ("duration" : numeric), 
-    ("browser" : (friendlyBrowserName | userAgent)),
-    ("clientName" : alphanumeric),
-    ("requestTime" : timestampAsString), 
-    ("requestId" : alphanumeric),
-    ("parentId" : alphanumeric)?,
-    ("isAjax" : bool),
-    ("url" : absolutePath),
-    ("metadata" : [Glimpse Metadata])?,
-    ("data" : [Glimpse Plugins])
-}
-```
-
-Remarks:
-
- * `method` - Describes the http verb that was used 
- * `duration` - The number of milliseconds that the request took to execute on the server
- * `browser` - Description that can be used to help identify which browser a request came from
- * `clientName` - The session name by which requests can be grouped by
- * `requestId` - Unique ID that each request has
- * `parentId` - The ID of the logical parent that "owns" the request
-    * Mainly used in the case of Ajax requests and to help identify the originating "parent" request 
- * `isAjax` - Whether this request was an ajax request or not
- * `url` - Absolute path that corresponds with the request
- * `metadata` - Any request specific metadata that this request has
-    * Request specific metadata is merged with the global metadata when processing the request. If there are any conflicts between this request specific metadata and the global metadata, the request specific metadata will be applied.
- * `data` - An key/value structure, representing the Glimpse Plugin's that where processed in this request
-
-Sample:
-```js
-{ 
-    method : "GET",
-    duration : 123,
-    browser : "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1201.0 Safari/537.1",
-    clientName : "iPhone",
-    requestId : "33fe61d1-cc8c-42b3-8ff4-1b8185c1ee98",
-    isAjax : false,
-    url : "/Glimpse/Glimpse/wiki/Data-Endpoints/",
-    metadata : { /* [Glimpse Metadata] */ } ,
-    data: { /* [Glimpse Plugins] */ } 
-}
-```
-
 
 ## API
 ### Request 
