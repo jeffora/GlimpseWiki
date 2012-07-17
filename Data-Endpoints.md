@@ -54,7 +54,7 @@ Definition:
     ("duration" : numeric), 
     ("browser" : (friendlyBrowserName | userAgent)),
     ("clientName" : alphanumeric),
-    ("requestTime : timestampAsString), 
+    ("requestTime" : timestampAsString), 
     ("requestId" : alphanumeric),
     ("parentId" : alphanumeric),
     ("isAjax" : bool),
@@ -74,8 +74,18 @@ Remarks:
  * `parentId` - The ID of the logical parent that "owns" the request
     * Mainly used in the case of Ajax requests and to help identify the originating "parent" request 
  * `isAjax` - Whether this request was an ajax request or not
- * ``
+ * `url` - Absolute path that corresponds with the request
+ * `metadata` - Any request specific metadata that this request has
+    * Request specific metadata is merged with the global metadata when processing the request. If there are any conflicts between this request specific metadata and the global metadata, the request specific metadata will be applied.
+ * `data` - An key/value structure, representing the Glimpse Plugin's that where processed in this request
 
+Sample:
+```js
+{ 
+    method : "GET",
+    browser : "Chrome"
+}
+```
 
 ### Glimpse Metadata
 
