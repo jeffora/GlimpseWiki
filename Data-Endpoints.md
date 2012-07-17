@@ -51,7 +51,7 @@ Definition:
     ("paths" : [Glimpse Metadata Resources]),
     ("environmentUrls" : [Glimpse Metadata Environments])?,
     ("correlation" : [Glimpse Metadata Correlation])?,
-    ("plugins" : [Glimpse Metadata Plugin's])?
+    ("plugins" : [Glimpse Metadata Plugins])?
 }
 ```
 
@@ -61,6 +61,7 @@ Definition:
 {  
     (resourceName : absolutePath)+ 
 }
+```
 
 **Glimpse Metadata Environments**
 
@@ -68,6 +69,7 @@ Definition:
 {  
     (environmentName : baseUrlPath)+ 
 }
+```
 
 **Glimpse Metadata Correlation**
 
@@ -80,6 +82,7 @@ Definition:
             ("requestId" : alphanumeric)
          )+ ])
 }
+```
 
 Remarks:
 
@@ -112,7 +115,7 @@ Sample:
         "QA" : "http://qa.getglimpse.com/",
         "Prod" : "http://getglimpse.com/"
     },
-    plugins : { /* [Glimpse Metadata Plug's] */ }
+    plugins : { /* [Glimpse Metadata Plugs] */ }
 }
 ```
 
@@ -134,7 +137,7 @@ Definition:
     ("isAjax" : bool),
     ("url" : absolutePath),
     ("metadata" : [Glimpse Metadata])?,
-    ("data" : [Glimpse Plugin's])
+    ("data" : [Glimpse Plugins])
 }
 ```
 
@@ -164,7 +167,7 @@ Sample:
     isAjax : false,
     url : "/Glimpse/Glimpse/wiki/Data-Endpoints/",
     metadata : { /* [Glimpse Metadata] */ } ,
-    data: { /* [Glimpse Plugin's] */ } 
+    data: { /* [Glimpse Plugins] */ } 
 }
 ```
 
