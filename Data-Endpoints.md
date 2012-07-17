@@ -2,6 +2,8 @@ The Data Endpoint API represents the contract that the Glimpse Client expects th
 
 ## Data Resource Models
 
+The following models are what the client expects to receive when making requests against the Data Resource Endpoint. This is designed to be a formal definition and from this point on, data type described by [] will be defined throughout this section. Other "simple" data type will assume that the reader is able to derive the values via the names and examples. 
+
 ### Glimpse Request
 
 Definition:
@@ -44,6 +46,7 @@ Sample:
     duration : 123,
     browser : "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1201.0 Safari/537.1",
     clientName : "iPhone",
+    requestTime : "2011/11/09 12:00:00",
     requestId : "33fe61d1-cc8c-42b3-8ff4-1b8185c1ee98",
     isAjax : false,
     url : "/Glimpse/Glimpse/wiki/Data-Endpoints/",
@@ -209,10 +212,10 @@ See [Glimpse Structured Data](./Glimpse-Structured-Data) documentation for the f
 
 
 
-## Data Resource Endpoint
+## Data Resource Endpoint (WORK IN PROGRESS)
 The intent is for the below API to be serviced through a single endpoint. The server implantation should be able to determine what specific request is being make via the parameters supplied. This concession is intended to simply the Resource Endpoint implementation on the server side - as different frameworks might require more configuration for any increase in endpoints. 
 
-The physical URL that the client will use to access this End Point is determined by by the Resource Endpoint API. This allows for the server implementation to provide a URL that is consistent with that platform. The exact structure of each of the models will be described below.
+The physical URL that the client will use to access this End Point is determined by by the Resource Endpoint API. This allows for the server implementation to provide a URL that is consistent with that platform. The exact structure of each of the models as described above.
 
 ### Request 
 Single entry that matches the given `requestId`.
