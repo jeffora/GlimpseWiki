@@ -91,9 +91,22 @@ Sample:
 }
 ```
 
+
+### Glimpse Structured Metadata
+
+See [Glimpse Structured Metadata](./Glimpse-Structured-Metadata) documentation for the formal specification.
+
 ### Glimpse Metadata Plugins
 
+Definition: 
 
+```js
+{  
+    ("pagingInfo" : [Glimpse Metadata Paging])?,
+    ("documentationUri" : url)?,
+    ("structured" : [Glimpse Structured Metadata])?
+}
+```
 
 ### Glimpse Metadata
 
