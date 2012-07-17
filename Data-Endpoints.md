@@ -1,4 +1,4 @@
-The Data Endpoint API represents the contract that the Glimpse Client expects the server to provide. This contract is important as the Glimpse Client is designed to work with multiple server implementations. This definition allows anyone implementing a Glimpse Service know what data it is expected to be able to send, when given Http `Post` is received.
+The Data Endpoint API represents the contract that the Glimpse Client expects the server to provide. This contract is important as the Glimpse Client is designed to work with multiple server implementations. This definition allows anyone implementing a Glimpse Service, to know what data it is expected, when given Http `Post` is received.
 
 ## End Point 
 The intent if for the below API to be serviced through a single endpoint and for the server implantation to determine what needs to happen via the parameters supplied. This is intended to make the work of who ever is implementing the server side of Glimpse easier, as different frameworks might require more configuration for any increase in endpoints.  
