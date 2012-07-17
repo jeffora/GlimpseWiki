@@ -220,9 +220,9 @@ The physical URL that the client will use to access this End Point is determined
 The following describes what URL can be used to access the corresponding resources. Note the example URL used in this case is `/glimpse.axd` but depending on the implementation this would change. Also for exact model implantation's, note the defined type and find definition in the above model descriptions.
 
 ### Get Glimpse Request
-Single *[Glimpse Request]* that matches the given `requestId`.
+Single `[Glimpse Request]` that matches the given `requestId`.
 
-/glimpse.axd?requestId=alphanumeric
+**/glimpse.axd?requestId=alphanumeric**
 ```js 
 {
     [Glimpse Request]
@@ -233,22 +233,22 @@ The data returned represents a requests full response. Meaning it not only inclu
 
 
 ### Get Glimpse Plugin
-*[Glimpse Plugin]* data for an individual plugin. Primarily used when lazy loading plugins. 
+The `[Glimpse Plugin]` data for an individual plugin. Primarily used when lazy loading plugins. 
 
-/glimpse.axd?requestId=alphanumeric&pluginKey=alphanumeric
+**/glimpse.axd?requestId=alphanumeric&pluginKey=alphanumeric**
 ```js 
 {
     [Glimpse Plugin]
 }
 ```
 
-The data returned represents the payload for an individual plugin. Meaning it includes the payload which is normally embedded within one of the elements of the *[Glimpse Request]* responses `data` property.
+The data returned represents the payload for an individual plugin. Meaning it includes the payload which is normally embedded within one of the elements of the `[Glimpse Request]` responses `data` property.
 
 
 ### Get Child Request Headers
-List of *[Glimpse Request Heads]* that represent the child ajax requests associated with a given origin `requestId`.
+List of `[Glimpse Request Heads]` that represent the child ajax requests associated with a given origin `requestId`.
 
-/glimpse.axd?parentRequestId=alphanumeric&ajaxResults=bool
+**/glimpse.axd?parentRequestId=alphanumeric&ajaxResults=bool**
 ```js 
 [
     [Glimpse Request Heads]
@@ -261,9 +261,9 @@ The data returned represents the requests *header* response. Meaning it *only* i
 
 
 ### Get All Request Headers
-List of *[Glimpse Request Heads]* that represent all the requests that the glimpse storage provider knows about.
+List of `[Glimpse Request Heads]` that represent all the requests that the glimpse storage provider knows about.
 
-/glimpse.axd
+**/glimpse.axd**
 ```js 
 {
     (sessionName : [
@@ -274,4 +274,4 @@ List of *[Glimpse Request Heads]* that represent all the requests that the glimp
 
 The data returned represents a requests *header* response. Meaning it *only* includes the header. It is grouped by the *client* that the request originated from. 
 
-*Enhancements*: A client should be able to indicate what previous requests is knows about. Meaning, if the server was previously asked for a list of requests and it returned 5 results, next time it is called, if there are 2 new requests, only the 2 new results should be returned instead of all 7.
+Enhancements: A client should be able to indicate what previous requests is knows about. Meaning, if the server was previously asked for a list of requests and it returned 5 results, next time it is called, if there are 2 new requests, only the 2 new results should be returned instead of all 7.
