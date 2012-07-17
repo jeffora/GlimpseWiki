@@ -1,10 +1,5 @@
 The Data Endpoint API represents the contract that the Glimpse Client expects the server to provide. This contract is important as the Glimpse Client is designed to work with multiple server implementations. This definition allows anyone implementing a Glimpse Service, to know what data it is expected, when given Http `Post` is received by the "Data Resource Endpoint".
 
-## Data Resource Endpoint
-The intent is for the below API to be serviced through a single endpoint. The server implantation should be able to determine what specific request is being make via the parameters supplied. This concession is intended to simply the Resource Endpoint implementation on the server side - as different frameworks might require more configuration for any increase in endpoints. 
-
-The physical URL that the client will use to access this End Point is determined by by the Resource Endpoint API. This allows for the server implementation to provide a URL that is consistent with that platform. The exact structure of each of the models will be described below.
-
 ## Data Resource Models
 
 ### Glimpse Request
@@ -214,7 +209,11 @@ See [Glimpse Structured Data](./Glimpse-Structured-Data) documentation for the f
 
 
 
-## API
+## Data Resource Endpoint
+The intent is for the below API to be serviced through a single endpoint. The server implantation should be able to determine what specific request is being make via the parameters supplied. This concession is intended to simply the Resource Endpoint implementation on the server side - as different frameworks might require more configuration for any increase in endpoints. 
+
+The physical URL that the client will use to access this End Point is determined by by the Resource Endpoint API. This allows for the server implementation to provide a URL that is consistent with that platform. The exact structure of each of the models will be described below.
+
 ### Request 
 Single entry that matches the given `requestId`.
 
