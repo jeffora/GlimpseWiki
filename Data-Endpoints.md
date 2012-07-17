@@ -69,27 +69,18 @@ Definition:
     ("correlation" : [Glimpse Metadata Correlation])?,
     ("plugins" : [Glimpse Metadata Plugins])?
 }
-```
 
-**Glimpse Metadata Resources**
-
-```js
+/* Glimpse Metadata Resources */
 {  
     (resourceName : absolutePath)+ 
 }
-```
 
-**Glimpse Metadata Environments**
-
-```js
+/* Glimpse Metadata Environments */
 {  
     (environmentName : baseUrlPath)+ 
 }
-```
 
-**Glimpse Metadata Correlation**
-
-```js
+/* Glimpse Metadata Correlation */
 {  
     ("title" : alphanumeric),
     ("legs" : [ (
@@ -175,11 +166,8 @@ Definition:
     ("documentationUri" : url)?,
     ("structured" : [Glimpse Structured Metadata])?
 }
-```
 
-**Glimpse Metadata Paging**
-
-```js
+/* Glimpse Metadata Paging */
 {  
     ("pagerType" : ("continuous" | "traditional" | "scrolling"), 
     ("pageSize" : numeric), 
