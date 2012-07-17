@@ -92,9 +92,9 @@ Sample:
 ```
 
 
-### Glimpse Structured Metadata
+### Glimpse Structured Data
 
-See [Glimpse Structured Metadata](./Glimpse-Structured-Metadata) documentation for the formal specification.
+See [Glimpse Structured Data](./Glimpse-Structured-Data) documentation for the formal specification.
 
 ### Glimpse Metadata Plugins
 
@@ -105,6 +105,44 @@ Definition:
     ("pagingInfo" : [Glimpse Metadata Paging])?,
     ("documentationUri" : url)?,
     ("structured" : [Glimpse Structured Metadata])?
+}
+```
+
+**Glimpse Metadata Paging**
+
+```js
+{  
+    ("pagerType" : ("continuous" | "traditional" | "scrolling"), 
+    ("pageSize" : numeric), 
+    ("pageIndex" : numeric), 
+    ("totalNumberOfRecords" : numeric) 
+}
+```
+
+Remarks:
+
+ * `pagingInfo` - Indicates that a plugin has a large volume of data that should be paged
+    * `pagerType` - The type of paging that the system should use
+        * `continuous` > As the user scrolls to the bottom of the page, the next page is loaded
+        * `traditional` > System provides a next and previous buttons
+        * `scrolling` > System provides a "more" button, which when clicked appends the next group of records
+    * `pageSize` - The number of records that make up each page
+    * `pageIndex` - Which page we are up to
+    * `totalNumberOfRecords` - The total number of records the system has
+ * `documentationUri` - The remote URL that provides help documentation for the plugin
+ * `structured` - The Glimpse Structured Metadata that describes how the plugins data should be formatted
+
+Sample:
+```js
+{
+    pagingInfo : { 
+        pagerType : 'continuous', 
+        pageSize : 5, 
+        pageIndex : 0, 
+        totalNumberOfRecords : 31 
+    },
+    documentationUri : "http://getGlimpse.com/Help/Plugin/Timeline",
+    structured : { /* [Glimpse Structured Metadata] */ }
 }
 ```
 
@@ -182,7 +220,7 @@ Sample:
         "QA" : "http://qa.getglimpse.com/",
         "Prod" : "http://getglimpse.com/"
     },
-    plugins : { /* [Glimpse Metadata Plugs] */ }
+    plugins : { /* [Glimpse Metadata Plugins] */ }
 }
 ```
 
