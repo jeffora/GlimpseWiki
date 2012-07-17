@@ -7,40 +7,6 @@ The physical URL that the client will use to access this End Point is determined
 
 ## Data Resource Models
 
-### Glimpse Protocol
-
-See [Glimpse Protocol](./Glimpse-Protocol) documentation for the formal specification.
-
-### Glimpse Plugin
-
-Definition:
-
-```js
-{ 
-    ("name" : alphanumeric),
-    ("data" : ("" | null | alphanumeric | [Glimpse Protocol]))?, 
-    ("isLazy" : bool)?
-}
-```
-
-Remarks:
-
- * `name` - Display name that the client will use to reefer to this plugin
- * `data` - Actual data payload of the tab (typically an object in the form of the `Glimpse Protocol`)
-    * Value = `null`; tab should be rendered, but appear disabled
-    * Value = `""`; tab should be rendered, appear enabled and show the text `No data found for this plugin.`
-    * Value = `alphanumeric`; tab should display the alphanumeric as a message
- * `isLazy` - Used to indicate if the client should lazily load plugin
-    * If this is the case "data" should be set to "".
-
-Sample:
-```js
-{ 
-    name : "Routes",
-    data : { /* [Glimpse Protocol] */ }
-}
-```
-
 ### Glimpse Request
 
 Definition:
@@ -88,61 +54,6 @@ Sample:
     url : "/Glimpse/Glimpse/wiki/Data-Endpoints/",
     metadata : { /* [Glimpse Metadata] */ } ,
     data: { /* [Glimpse Plugins] */ } 
-}
-```
-
-
-### Glimpse Structured Data
-
-See [Glimpse Structured Data](./Glimpse-Structured-Data) documentation for the formal specification.
-
-### Glimpse Metadata Plugins
-
-Definition: 
-
-```js
-{  
-    ("pagingInfo" : [Glimpse Metadata Paging])?,
-    ("documentationUri" : url)?,
-    ("structured" : [Glimpse Structured Metadata])?
-}
-```
-
-**Glimpse Metadata Paging**
-
-```js
-{  
-    ("pagerType" : ("continuous" | "traditional" | "scrolling"), 
-    ("pageSize" : numeric), 
-    ("pageIndex" : numeric), 
-    ("totalNumberOfRecords" : numeric) 
-}
-```
-
-Remarks:
-
- * `pagingInfo` - Indicates that a plugin has a large volume of data that should be paged
-    * `pagerType` - The type of paging that the system should use
-        * `continuous` > As the user scrolls to the bottom of the page, the next page is loaded
-        * `traditional` > System provides a next and previous buttons
-        * `scrolling` > System provides a "more" button, which when clicked appends the next group of records
-    * `pageSize` - The number of records that make up each page
-    * `pageIndex` - Which page we are up to
-    * `totalNumberOfRecords` - The total number of records the system has
- * `documentationUri` - The remote URL that provides help documentation for the plugin
- * `structured` - The Glimpse Structured Metadata that describes how the plugins data should be formatted
-
-Sample:
-```js
-{
-    pagingInfo : { 
-        pagerType : 'continuous', 
-        pageSize : 5, 
-        pageIndex : 0, 
-        totalNumberOfRecords : 31 
-    },
-    documentationUri : "http://getGlimpse.com/Help/Plugin/Timeline",
-    structured : { /* [Glimpse Structured Metadata] */ }
 }
 ```
 
@@ -223,6 +134,97 @@ Sample:
     plugins : { /* [Glimpse Metadata Plugins] */ }
 }
 ```
+
+### Glimpse Plugin
+
+Definition:
+
+```js
+{ 
+    ("name" : alphanumeric),
+    ("data" : ("" | null | alphanumeric | [Glimpse Protocol]))?, 
+    ("isLazy" : bool)?
+}
+```
+
+Remarks:
+
+ * `name` - Display name that the client will use to reefer to this plugin
+ * `data` - Actual data payload of the tab (typically an object in the form of the `Glimpse Protocol`)
+    * Value = `null`; tab should be rendered, but appear disabled
+    * Value = `""`; tab should be rendered, appear enabled and show the text `No data found for this plugin.`
+    * Value = `alphanumeric`; tab should display the alphanumeric as a message
+ * `isLazy` - Used to indicate if the client should lazily load plugin
+    * If this is the case "data" should be set to "".
+
+Sample:
+```js
+{ 
+    name : "Routes",
+    data : { /* [Glimpse Protocol] */ }
+}
+```
+
+### Glimpse Metadata Plugins
+
+Definition: 
+
+```js
+{  
+    ("pagingInfo" : [Glimpse Metadata Paging])?,
+    ("documentationUri" : url)?,
+    ("structured" : [Glimpse Structured Metadata])?
+}
+```
+
+**Glimpse Metadata Paging**
+
+```js
+{  
+    ("pagerType" : ("continuous" | "traditional" | "scrolling"), 
+    ("pageSize" : numeric), 
+    ("pageIndex" : numeric), 
+    ("totalNumberOfRecords" : numeric) 
+}
+```
+
+Remarks:
+
+ * `pagingInfo` - Indicates that a plugin has a large volume of data that should be paged
+    * `pagerType` - The type of paging that the system should use
+        * `continuous` > As the user scrolls to the bottom of the page, the next page is loaded
+        * `traditional` > System provides a next and previous buttons
+        * `scrolling` > System provides a "more" button, which when clicked appends the next group of records
+    * `pageSize` - The number of records that make up each page
+    * `pageIndex` - Which page we are up to
+    * `totalNumberOfRecords` - The total number of records the system has
+ * `documentationUri` - The remote URL that provides help documentation for the plugin
+ * `structured` - The Glimpse Structured Metadata that describes how the plugins data should be formatted
+
+Sample:
+```js
+{
+    pagingInfo : { 
+        pagerType : 'continuous', 
+        pageSize : 5, 
+        pageIndex : 0, 
+        totalNumberOfRecords : 31 
+    },
+    documentationUri : "http://getGlimpse.com/Help/Plugin/Timeline",
+    structured : { /* [Glimpse Structured Metadata] */ }
+}
+```
+
+### Glimpse Protocol
+
+See [Glimpse Protocol](./Glimpse-Protocol) documentation for the formal specification.
+
+
+### Glimpse Structured Data
+
+See [Glimpse Structured Data](./Glimpse-Structured-Data) documentation for the formal specification.
+
+
 
 ## API
 ### Request 
