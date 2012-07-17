@@ -1,4 +1,4 @@
-The Data Endpoint API represents the contract that the Glimpse Client expects the server to provide. This contract is important as the Glimpse Client is designed to work with multiple server implementations. This definition allows anyone implementing a Glimpse Service, to know what data it is expected, when given Http `GET` is received by the "Data Resource Endpoint".
+The Data Endpoint API represents the contract that the Glimpse Client expects the server to provide for data access. This contract is important as the Glimpse Client is designed to work with multiple server implementations. This definition allows anyone implementing a Glimpse Service, to know what data it is expected, when given Http `GET` is received by the "Data Resource Endpoint".
 
 ## Data Resource Models
 
