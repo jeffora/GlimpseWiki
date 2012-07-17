@@ -37,10 +37,7 @@ Sample:
 ```js
 { 
     name : "Routes",
-    data : { 
-        "Key 1" : "Value 1", 
-        "Key 2" : "Value 2"
-    }
+    data : { /* [Glimpse Protocol] */ }
 }
 ```
 
@@ -56,7 +53,7 @@ Definition:
     ("clientName" : alphanumeric),
     ("requestTime" : timestampAsString), 
     ("requestId" : alphanumeric),
-    ("parentId" : alphanumeric),
+    ("parentId" : alphanumeric)?,
     ("isAjax" : bool),
     ("url" : absolutePath),
     ("metadata" : [Glimpse Metadata])?,
@@ -83,7 +80,14 @@ Sample:
 ```js
 { 
     method : "GET",
-    browser : "Chrome"
+    duration : 123,
+    browser : "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1201.0 Safari/537.1",
+    clientName : "iPhone",
+    requestId : "33fe61d1-cc8c-42b3-8ff4-1b8185c1ee98",
+    isAjax : false,
+    url : "/Glimpse/Glimpse/wiki/Data-Endpoints/",
+    metadata : { /* [Glimpse Metadata] */ } ,
+    data: { /* [Glimpse Plugin's] */ } 
 }
 ```
 
