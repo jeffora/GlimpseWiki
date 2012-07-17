@@ -41,6 +41,83 @@ Sample:
 }
 ```
 
+### Glimpse Metadata
+
+Definition:
+
+```js
+{  
+    ("version" : versionNumber),
+    ("paths" : [Glimpse Metadata Resources]),
+    ("environmentUrls" : [Glimpse Metadata Environments])?,
+    ("correlation" : [Glimpse Metadata Correlation])?,
+    ("plugins" : [Glimpse Metadata Plugin's])?
+}
+```
+
+**Glimpse Metadata Resources**
+
+```js
+{  
+    (resourceName : absolutePath)+ 
+}
+
+**Glimpse Metadata Environments**
+
+```js
+{  
+    (environmentName : baseUrlPath)+ 
+}
+
+**Glimpse Metadata Correlation**
+
+```js
+{  
+    ("title" : alphanumeric),
+    ("legs" : [ (
+            ("method" : ("GET" | "POST" | "DELETE" | "PUT")),
+            ("url" : absolutePath),
+            ("requestId" : alphanumeric)
+         )+ ])
+}
+
+Remarks:
+
+ * `version` - Current version of Glimpse described semantically (i.e. 1.1.3.2)
+ * `paths` - Describes the paths at which the client can access various resources
+    * `resourceName` - The key that the client is programmed to lookup for a given url
+ * `environmentUrls` - Facilitates the environment switching features that glimpse supports
+    * `environmentName` - Title that the developer selects for each given environment 
+ * `correlation` - Used in cases where multiple requests are to be linked together (primarily in PRG cases)
+    * `title` - Friendly title of the correlation that has been made
+    * `legs` - A collection holding the description of each of the requests involved
+    * `method` - Describes the http verb that was used 
+    * `requestId` - The ID that the system can use identify the request
+ * `plugins` - The metadata that is to be applied to individual plugins 
+
+Sample:
+```js
+{ 
+    version : '1.1.3.2',
+    paths : {
+        "data" : "/Glimpse/Data",
+        "paging" : "/Glimpse/Pager", 
+        "config" : "/Glimpse/Config",
+        "logo" : "/Glimpse/Logo",
+        "sprite" : "/Glimpse/Sprite",
+        "popup" : "/Glimpse/Popup"
+    },
+    environmentUrls : {
+        "Dev" : "http://localhost/",
+        "QA" : "http://qa.getglimpse.com/",
+        "Prod" : "http://getglimpse.com/"
+    },
+    plugins : { /* [Glimpse Metadata Plug's] */ }
+}
+```
+
+
+
 ### Glimpse Request
 
 Definition:
@@ -90,8 +167,6 @@ Sample:
     data: { /* [Glimpse Plugin's] */ } 
 }
 ```
-
-### Glimpse Metadata
 
 
 ## API
