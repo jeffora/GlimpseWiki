@@ -22,4 +22,4 @@ Location of the [[Popup Page|Popup Page]]. Used so that the client can provide i
 See [[Data Endpoint|Data Endpoint]] documentation for the formal specification.
 
 ## Client Integration
-For the client to be able to leverage these assets/endpoint, the client needs to know where they exist. That said, depending on the server implementation the resources may reside at different Http addresses. To cater for this occurrence, the client determines where to retrieve resources from via the `paths` property in the initial `[Glimpse Metadata]` provided to the client (see the [Glimpse Metadata] model described in the [[Data Endpoint|Data Endpoint]]) API for more details).  
+For the client to be able to leverage these assets/endpoint, the client needs to know where they exist. That said, depending on the server implementation the resources may reside at different Http addresses. To cater for this occurrence, the client determines where to retrieve resources from via the `paths` property in the initial [Glimpse Metadata] provided to the client (see the [Glimpse Metadata] model described in the [[Data Endpoint|Data Endpoint]]) API for more details).  
