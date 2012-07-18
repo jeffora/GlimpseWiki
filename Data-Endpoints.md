@@ -154,7 +154,7 @@ Sample:
 }
 ```
 
-### [Glimpse Metadata Plugins]
+### [Glimpse Metadata Plugin]
 
 Definition: 
 
