@@ -13,9 +13,7 @@ Location of the [[Logo|Resource Logo]]. Used within the rendered interface for b
 Location of the [[Sprite|Resource Sprite]]. Used within the rendered interface to provide a high fidelity experience.
 
 ### Paging
-Location of the [[Paging Endpoint|Paging Endpoint]]. This is used by plugins that gather more data records than what practically makes sense to send to the client in the initial payload. 
-
-*Note this is a Draft specification as it may end up being merged into the Data Endpoint.*
+Location of the [[Paging Endpoint|Paging Endpoint]]. This is used by plugins that gather more data records than what practically makes sense to send to the client in the initial payload. *Note this is a Draft specification as it may end up being merged into the Data Endpoint.*
 
 ### Popup
 Location of the [[Popup Page|Popup Page]]. Used so that the client can provide its popup functionality.
