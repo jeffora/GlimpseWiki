@@ -4,6 +4,8 @@ Glimpse allows you to take a never before seen look inside your server. Instead 
 
 ## Usage
 
+*In progress*
+
 ## API
 
 ### Endpoints
