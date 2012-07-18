@@ -17,5 +17,5 @@ The relationship between the client and server is facilitated by the client bein
 ### Schema
 Part of what makes Glimpse simple for Plugin authors to get their data rendering in Glimpse, is the simplicity of the Glimpse Schema. This Schema is very logical and easy to follow. By default, it will render a table of results that looks how the data is structured in Json. For the actual specification please see the below.
 
-  * [[Simple|Glimpse Simple Layout]] (draft)
-  * [[Structured|Glimpse Structured Layout]] (draft)
+  * [[Simple|Simple Layout]] (draft)
+  * [[Structured|Structured Layout]] (draft)
