@@ -1,8 +1,8 @@
 # Table of Contents
 
 * API Documentation
-  * Glimpse Endpoints
-      * [Data](./wiki/Data-Endpoints)
-      * [Resource](./wiki/Resource-Endpoints)
-  * [Glimpse Protocol](./wiki/Glimpse-Protocol)
-  * [Glimpse Structured Data](./wiki/Glimpse-Structured-Data)
+  * [Glimpse Endpoints]
+      * [Data](Data Endpoints)
+      * [Resource](Resource Endpoints)
+  * [Glimpse Schema](Glimpse Schema)
+      * [Structured Data](Glimpse Structured Data)
