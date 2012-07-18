@@ -138,7 +138,7 @@ Definition:
 
 Remarks:
 
- * `name` - Display name that the client will use to reefer to this plugin
+ * `name` - Display name that the client will use to refer to this plugin
  * `data` - Actual data payload of the tab (typically an object in the form of the `Glimpse Simple Layout`)
     * Value = `null`; tab should be rendered, but appear disabled
     * Value = `""`; tab should be rendered, appear enabled and show the text `No data found for this plugin.`
