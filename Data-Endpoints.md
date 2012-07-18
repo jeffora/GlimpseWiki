@@ -4,7 +4,7 @@ The Data Endpoint API represents the contract that the Glimpse Client expects th
 
 The following models are what the client expects to receive when making requests against the Data Resource Endpoint. This is designed to be a formal definition and from this point on, data type described by [] will be defined throughout this section. Other "simple" data type will assume that the reader is able to derive the values via the names and examples. 
 
-### Glimpse Request
+### [Glimpse Request]
 
 Definition:
 
@@ -55,7 +55,7 @@ Sample:
 }
 ```
 
-### Glimpse Metadata
+### [Glimpse Metadata]
 
 Definition:
 
@@ -68,17 +68,17 @@ Definition:
     ("plugins" : [Glimpse Metadata Plugins])?
 }
 
-/* Glimpse Metadata Resources */
+/* [Glimpse Metadata Resources] */
 {  
     (resourceName : absolutePath)+ 
 }
 
-/* Glimpse Metadata Environments */
+/* [Glimpse Metadata Environments] */
 {  
     (environmentName : baseUrlPath)+ 
 }
 
-/* Glimpse Metadata Correlation */
+/* [Glimpse Metadata Correlation] */
 {  
     ("title" : alphanumeric),
     ("legs" : [ (
@@ -124,14 +124,14 @@ Sample:
 }
 ```
 
-### Glimpse Plugin
+### [Glimpse Plugin]
 
 Definition:
 
 ```js
 { 
     ("name" : alphanumeric),
-    ("data" : ("" | null | alphanumeric | [Glimpse Protocol]))?, 
+    ("data" : ("" | null | alphanumeric | [Glimpse Simple Layout]))?, 
     ("isLazy" : bool)?
 }
 ```
@@ -139,7 +139,7 @@ Definition:
 Remarks:
 
  * `name` - Display name that the client will use to reefer to this plugin
- * `data` - Actual data payload of the tab (typically an object in the form of the `Glimpse Protocol`)
+ * `data` - Actual data payload of the tab (typically an object in the form of the `Glimpse Simple Layout`)
     * Value = `null`; tab should be rendered, but appear disabled
     * Value = `""`; tab should be rendered, appear enabled and show the text `No data found for this plugin.`
     * Value = `alphanumeric`; tab should display the alphanumeric as a message
@@ -150,11 +150,11 @@ Sample:
 ```js
 { 
     name : "Routes",
-    data : { /* [Glimpse Protocol] */ }
+    data : { /* [Glimpse Simple Layout] */ }
 }
 ```
 
-### Glimpse Metadata Plugins
+### [Glimpse Metadata Plugins]
 
 Definition: 
 
@@ -165,7 +165,7 @@ Definition:
     ("structured" : [Glimpse Structured Metadata])?
 }
 
-/* Glimpse Metadata Paging */
+/* [Glimpse Metadata Paging] */
 {  
     ("pagerType" : ("continuous" | "traditional" | "scrolling"), 
     ("pageSize" : numeric), 
@@ -201,14 +201,14 @@ Sample:
 }
 ```
 
-### Glimpse Protocol
+### [Glimpse Simple Layout]
 
-See [Glimpse Protocol](./Glimpse-Protocol) documentation for the formal specification.
+See [[Glimpse Simple Layout|Simple Layout]] documentation for the formal specification.
 
 
-### Glimpse Structured Data
+### [Glimpse Structured Layout]
 
-See [Glimpse Structured Data](./Glimpse-Structured-Data) documentation for the formal specification.
+See [[Glimpse Structured Layout|Structured Layout]] documentation for the formal specification.
 
 
 
