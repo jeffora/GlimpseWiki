@@ -61,12 +61,21 @@ Definition:
 
 ```js
 {  
-    ("version" : versionNumber),
+    ("version" : [Glimpse Metadata Versions]),
     ("paths" : [Glimpse Metadata Resources]),
     ("environmentUrls" : [Glimpse Metadata Environments])?,
     ("correlation" : [Glimpse Metadata Correlation])?,
     ("plugins" : [Glimpse Metadata Plugins])?
 }
+
+/* [Glimpse Metadata Versions] */
+[
+    ({ 
+        ("pack" : alphanumeric),
+        ("current" : versionNumber),
+        ("channel" : versionNumber)
+    })+
+]
 
 /* [Glimpse Metadata Resources] */
 {  
@@ -91,7 +100,10 @@ Definition:
 
 Remarks:
 
- * `version` - Current version of Glimpse described semantically (i.e. 1.1.3.2)
+ * `version` - Describes the version numbers of the plugin packs in the system
+    * `pack` - Name of the plugin pack used to identify it 
+    * `current` - Current version of the pack described semantically (i.e. 1.1.3.2)
+    * `channel` - What channel the pack is a part of (i.e. Alpha, Beta, Release)
  * `paths` - Describes the paths at which the client can access various resources
     * `resourceName` - The key that the client is programmed to lookup for a given url
  * `environmentUrls` - Facilitates the environment switching features that glimpse supports
