@@ -71,9 +71,9 @@ Definition:
 /* [Glimpse Metadata Versions] */
 [
     ({ 
-        ("pack" : alphanumeric),
+        ("name" : alphanumeric),
         ("current" : versionNumber),
-        ("channel" : versionNumber)
+        ("channel" : alphanumeric)
     })+
 ]
 
@@ -101,7 +101,7 @@ Definition:
 Remarks:
 
  * `version` - Describes the version numbers of the plugin packs in the system
-    * `pack` - Name of the plugin pack used to identify it 
+    * `name` - Name of the plugin pack used to identify it 
     * `current` - Current version of the pack described semantically (i.e. 1.1.3.2)
     * `channel` - What channel the pack is a part of (i.e. Alpha, Beta, Release)
  * `paths` - Describes the paths at which the client can access various resources
