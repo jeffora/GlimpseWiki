@@ -19,3 +19,8 @@ Part of what makes Glimpse simple for Plugin authors to get their data rendering
 
   * [[Simple|Simple Layout]] (draft)
   * [[Structured|Structured Layout]] (draft)
+
+### Update Notification
+Supports the client's ability to check if new updates are available for any of its plugins. 
+
+  * [[Notification|Update Notification]] (draft)
