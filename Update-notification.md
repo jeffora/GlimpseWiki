@@ -101,3 +101,46 @@ Sample:
     ]
 }
 ```
+
+### [Update Listing]
+
+Definition:
+```js 
+{
+    (channel : {
+        (versionNumber : {
+            "address" : url
+        })+
+    })+ 
+}
+```
+
+Remarks:
+ - `channel` - Defines the channel that the release might belong to (i.e. Alpha, Beta, Production)
+ - `address` - Where the details for the release can be found
+
+Sample:
+```js
+{
+    "beta" : {
+        "1.2.1" : {
+            "address" : "http://getglimpse.com/release/1.2.1"
+        },
+        "1.2.2" : {
+            "address" : "http://getglimpse.com/release/1.2.2"
+        },
+        "1.2.3" : {
+            "address" : "http://getglimpse.com/release/1.2.3"
+        }
+    },
+    "" : {
+        "1.2" : {
+            "address" : "http://getglimpse.com/release/1.2"
+        },
+        "1.3" : {
+            "address" : "http://getglimpse.com/release/1.3"
+        }
+    }
+}
+```
+    
