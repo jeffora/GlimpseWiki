@@ -117,6 +117,7 @@ Definition:
 
 Remarks:
  - `channel` - Defines the channel that the release might belong to (i.e. Alpha, Beta, Production)
+     - A channel of "" will be considered the default production channel
  - `address` - Where the details for the release can be found
 
 Sample:
