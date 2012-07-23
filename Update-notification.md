@@ -1,3 +1,6 @@
+When an update is available for any plugin, the system will notify the user that it is available for at least one of the modules that is currently installed. As part of this experience, the user can choose to see the details of the release. These details should display a summarized aggregated list the release notes. 
+
+At first this may seem like a trial task, but the plugin model provided by Glimpse means each module may be versioned independently, originate from different sources and the user may be many releases behind. Hence, the system needs to deal with these complexities.
 
 ## Notification Models
 The following models are what the web client expects to receive when making requests against the Update Notification Endpoints. This is designed to be a formal definition and from this point on, data type described by [] will be defined throughout this section. Other "simple" data type will assume that the reader is able to derive the values via the names and examples.
