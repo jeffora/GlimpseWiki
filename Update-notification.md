@@ -1,5 +1,6 @@
 
-
+## Notification Models
+The following models are what the web client expects to receive when making requests against the Update Notification Endpoints. This is designed to be a formal definition and from this point on, data type described by [] will be defined throughout this section. Other "simple" data type will assume that the reader is able to derive the values via the names and examples.
 
 ### [Update Notification]
 
