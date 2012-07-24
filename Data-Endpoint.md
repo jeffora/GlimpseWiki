@@ -8,7 +8,7 @@ In the case of the default .NET implementation of the Glimpse Server, this endpo
 
 ### Get Glimpse Request
 
-Returns a single Glimpse Request data type for the specified `requestId`.
+Returns a single Glimpse Request data type for the specified `requestId`. The response must conform to the `[Glimpse Request]` contract defined below.
 
 **Parameters**
 `requestId`
@@ -35,6 +35,91 @@ Status: 200 OK
     data: { /* [Glimpse Plugins] */ } 
 }
 ```
+
+### Get Glimpse Plugin
+
+Returns data for a single Glimpse Plugin, for a single request. The response must conform to the `[Glimpse Plugin]` contract defined below.
+
+**Parameters**
+`requestId`
+`pluginKey`
+
+**Request**
+```
+GET /glimpse.axd?requestId=33fe61d1-cc8c-42b3-8ff4-1b8185c1ee98&pluginKey=Routes
+```
+**Response**
+```
+Status: 200 OK
+```
+```js
+{
+    "name" : "Routes",
+    "data" : [Glimpse Simple Layout]
+}
+```
+## Data Resource Contracts
+
+This section provides formal definitions for the data contracts expected by the client.
+
+### Glimpse Request
+
+`[Glimpse Request]`
+```js
+{  
+    ("method" : ("GET" | "POST" | "DELETE" | "PUT")),
+    ("duration" : numeric), 
+    ("browser" : (friendlyBrowserName | userAgent)),
+    ("clientName" : alphanumeric),
+    ("requestTime" : timestampAsString), 
+    ("requestId" : alphanumeric),
+    ("parentId" : alphanumeric)?,
+    ("isAjax" : bool),
+    ("url" : absolutePath),
+    ("metadata" : [Glimpse Metadata])?,
+    ("data" : [Glimpse Plugins])
+}
+```
+
+**Remarks**
+
+ * `method` - HTTP verb used
+ * `duration` - The number of milliseconds that the request took to execute on the server
+ * `browser` - Description that can be used to help identify which browser a request came from
+ * `clientName` - The session name by which requests can be grouped
+ * `requestId` - Unique Id of the request
+ * `parentId` - The ID of the logical parent that "owns" the request
+    * Mainly used in the case of Ajax requests and to help identify the originating "parent" request 
+ * `isAjax` - Whether this request was an ajax request or not
+ * `url` - Absolute path that corresponds with the request
+ * `metadata` - Any request specific metadata that this request has
+    * Request specific metadata is merged with the global metadata when processing the request. If there are any conflicts between this request specific metadata and the global metadata, the request specific metadata will be applied.
+ * `data` - An key/value structure, representing the Glimpse Plugin's that where processed in this request
+
+### Glimpse Plugin
+
+`[Glimpse Plugin]`
+```js
+{
+    ("name" : alphanumeric),
+    ("data" : ("" | null | alphanumeric | [Glimpse Simple Layout]))?,
+    ("isLazy" : bool)?
+}
+```
+
+**Remarks**
+
+ * `name` - Display name that the client will use to refer to this plugin
+ * `data` - Actual data payload of the tab (typically an object in the form of the `Glimpse Simple Layout`)
+    * Value = `null`; tab should be rendered, but appear disabled
+    * Value = `""`; tab should be rendered, appear enabled and show the text `No data found for this plugin.`
+    * Value = `alphanumeric`; tab should display the alphanumeric as a message
+ * `isLazy` - Used to indicate if the client should lazily load plugin
+    * If this is the case "data" should be set to "".
+
+
+****
+****
 
 ## Data Resource Models
 
