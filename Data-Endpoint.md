@@ -8,7 +8,8 @@ In the case of the default .NET implementation of the Glimpse Server, this endpo
 
 ### Get Glimpse Request
 
-Returns a single Glimpse Request data type for the specified `requestId`. The response must conform to the `[Glimpse Request]` contract defined below.
+Returns a single Glimpse Request data type for the specified `requestId`. The response must conform to the [`Glimpse Request`](#glimpse-request) contract defined below.
+
 
 **Parameters**
 `requestId`
@@ -38,7 +39,7 @@ Status: 200 OK
 
 ### Get Glimpse Plugin
 
-Returns data for a single Glimpse Plugin, for a single request. The response must conform to the `[Glimpse Plugin]` contract defined below.
+Returns data for a single Glimpse Plugin, for a single request. The response must conform to the [`Glimpse Plugin`](#glimpse-plugin) contract defined below.
 
 **Parameters**
 `requestId`
