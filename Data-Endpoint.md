@@ -1,4 +1,40 @@
-The Data Endpoint API represents the contract that the Glimpse Client expects the server to provide for data access. This contract is important as the Glimpse Client is designed to work with multiple server implementations. This definition allows anyone implementing a Glimpse Service to know what data the client expects when given Http request is received by the "Data Resource Endpoint".
+The Data Endpoint API represents the contract that the Glimpse Client expects the server to provide for data access. This contract is important as the Glimpse Client is designed to work with multiple server implementations. This document informs Glimpse server implementations how to appropriately respond to requests from the Glimpse Client.
+
+The client expects a single server endpoint that responds to requests appropriately based on request parameters. This behaviour is designed to minimise framework-specific configuration for alternative server implementations, and help ensure the client can seamlessly interact with any server endpoint.
+
+In the case of the default .NET implementation of the Glimpse Server, this endpoint is exposed via the `/glimpse.axd` handler, and this is used for examples throughout this document.
+
+## Data Resource Endpoint API
+
+### Get Glimpse Request
+
+Returns a single Glimpse Request data type for the specified `requestId`.
+
+**Parameters**
+`requestId`
+
+**Request**
+```
+GET /glimpse.axd?requestId=33fe61d1-cc8c-42b3-8ff4-1b8185c1ee98
+```
+**Response**
+```
+Status: 200 OK
+```
+```js
+{ 
+    method : "GET",
+    duration : 123,
+    browser : "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1201.0 Safari/537.1",
+    clientName : "iPhone",
+    requestTime : "2011/11/09 12:00:00",
+    requestId : "33fe61d1-cc8c-42b3-8ff4-1b8185c1ee98",
+    isAjax : false,
+    url : "/Glimpse/Glimpse/wiki/Data-Endpoints/",
+    metadata : { /* [Glimpse Metadata] */ } ,
+    data: { /* [Glimpse Plugins] */ } 
+}
+```
 
 ## Data Resource Models
 
